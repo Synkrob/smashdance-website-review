@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spring &amp; Summer Kids Camps in San Antonio | SMASH Dance</title>
+  <meta name="description" content="Spring, summer, and school-break dance camps in San Antonio for kids, with creative themes, dance, music, performance, and a supportive studio environment.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="camps-page">
+  <div id="shared-header"></div>
+
+  <main>
+    <section class="camps-hero" aria-labelledby="camps-hero-title">
+      <div class="container camps-hero-layout">
+        <div class="camps-hero-copy">
+          <p>SMASH KIDS CAMPS</p>
+          <h1 id="camps-hero-title"><span>San Antonio’s Home for</span><span>Spring &amp; Summer Kids Camps</span></h1>
+        </div>
+        <img class="camps-hero-photo" src="assets/incoming/camps/camps-hero-activity.jpg" alt="Kids enjoying a creative camp activity at SMASH Dance Studio">
+      </div>
+    </section>
+
+    <section class="camps-story" aria-labelledby="camps-story-title">
+      <div class="container camps-story-layout">
+        <div class="camps-story-copy">
+          <p class="camps-story-eyebrow">OUR STORY</p>
+          <h2 id="camps-story-title">Themed Dance Camps at SMASH Dance Studio</h2>
+          <p>At <strong>SMASH Dance Studio</strong> in <strong>San Antonio, Texas</strong>, we have been inspiring young performers since the very beginning through our fun and creative <strong>themed dance camps</strong>. These programs give kids the chance to <strong>dance, act, sing, and perform</strong> with confidence while enjoying every moment of the process. Each camp is centered around exciting themes that children love, from popular <strong>movies, kids shows, cartoon series, and superheroes</strong> to special seasonal adventures. Every camp ends with a lively <strong>performance for parents and friends</strong>, allowing kids to shine on stage and showcase what they have learned.</p>
+          <p>We offer <strong>summer camps, spring break camps, and special occasion camps</strong> throughout the year. Each program provides a safe and supportive environment where creativity grows and imagination takes center stage. Our talented instructors focus on helping children build confidence, coordination, and teamwork while having fun through movement and performance.</p>
+          <p>Whether your child dreams of being on stage or simply loves to move and express themselves, <strong>SMASH Dance Studio</strong> is the perfect place to explore their creativity and make lasting memories.</p>
+        </div>
+        <img class="camps-story-photo" src="assets/incoming/camps/camps-story.jpg" alt="Families and children enjoying a themed dance camp at SMASH Dance Studio" loading="lazy">
+      </div>
+    </section>
+
+    <section class="highlights other-programs camps-other-programs" aria-labelledby="camps-other-programs-title">
+      <div class="container">
+        <h2 id="camps-other-programs-title">Other Programs</h2>
+        <div class="highlight-grid">
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/other-program-studio-rental.jpg" alt="SMASH Dance Studio rental space" loading="lazy">
+            <h3>Studio Rentals</h3>
+            <p>Rent one of our 3 rooms available for rehearsals, fitness classes, or private events. Affordable and spacious with an inviting atmosphere perfect for teachers, performers, and creators.</p>
+            <a class="highlight-cta" href="tel:210-201-2873">Call Us</a>
+          </article>
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/other-program-bachelorette.jpg" alt="Bachelorette dance party at SMASH" loading="lazy">
+            <h3>Bachelorette Parties</h3>
+            <p>Celebrate your special night with a private San Antonio bachelorette dance party. Enjoy fun customized routines that create unforgettable memories with your closest friends.</p>
+            <a class="highlight-cta" href="mailto:smashdancetx@gmail.com">More Info</a>
+          </article>
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/other-program-choreographies.png" alt="Choreographies by SMASH" loading="lazy">
+            <h3>Choreographies</h3>
+            <p>Get professional San Antonio choreography for weddings, performances, or competitions. Our instructors create creative and polished routines that match your unique style and skill level.</p>
+            <a class="highlight-cta" href="mailto:smashdancetx@gmail.com">More Info</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlights camps-studio-highlights" aria-labelledby="camps-highlights-title">
+      <div class="container">
+        <h2 id="camps-highlights-title">Studio Highlights</h2>
+        <div class="highlight-grid">
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/studio-highlight-kids.jpg" alt="Kids dancing at SMASH Dance Studio" loading="lazy">
+            <h3>Kids Dance Programs</h3>
+            <p>Inspiring kids dance classes for ages 3–17 in San Antonio that build confidence, creativity, and coordination in a positive and supportive space.</p>
+            <a class="highlight-cta" href="https://form.jotform.com/212597786825069">Kids Schedule</a>
+          </article>
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/studio-highlight-adults.jpg" alt="Adult fitness class at SMASH Dance Studio" loading="lazy">
+            <h3>Adult Fitness Classes</h3>
+            <p>Energize your body and mind with San Antonio’s best dance fitness workouts. Fun classes that build confidence and connect you with our local dance community.</p>
+            <a class="highlight-cta" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=S56RD2K69JEHC">Adult Schedule</a>
+          </article>
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/studio-highlight-community.jpg" alt="Project SMASH community outreach event" loading="lazy">
+            <h3>Community Outreach</h3>
+            <p>SMASH Dance supports the community through outreach programs, youth development, creative arts initiatives, and partnerships that empower, inspire, and uplift families and students.</p>
+            <a class="highlight-cta" href="project-smash.html">Project SMASH</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="shared-footer"></div>
+
+  <script>
+    fetch('index.html')
+      .then((response) => response.ok ? response.text() : Promise.reject(new Error('Unable to load the shared header.')))
+      .then((html) => {
+        const source = new DOMParser().parseFromString(html, 'text/html');
+        const header = source.querySelector('.site-header');
+        const footer = source.querySelector('.site-footer');
+        const headerTarget = document.querySelector('#shared-header');
+        const footerTarget = document.querySelector('#shared-footer');
+        [header, footer].filter(Boolean).forEach((section) => section.querySelectorAll('[src]').forEach((element) => {
+          element.src = new URL(element.getAttribute('src'), window.location.href).href;
+        }));
+        if (header && headerTarget) headerTarget.replaceWith(header);
+        if (footer && footerTarget) footerTarget.replaceWith(footer);
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>

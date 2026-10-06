@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kids Dance Classes in San Antonio | SMASH Dance Studio</title>
+  <meta name="description" content="Kids dance classes for ages 3–17 in San Antonio, including ballet, hip hop, jazz, K-pop, tumbling, showcases, and a $5 trial class at SMASH Dance Studio.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="home-actions.css">
+  <style>
+    .kids-program .story-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; max-width: none; gap: 6px; }
+    .kids-program .story-cta.story-action { min-width: 0; padding: 10px 8px; font-size: 12px; white-space: nowrap; }
+    @media (max-width: 560px) { .kids-program .story-actions { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body class="kids-schedule-page">
+  <div id="shared-header"></div>
+  <main>
+    <section class="kids-hero" aria-labelledby="kids-hero-title">
+      <div class="kids-hero-backdrop" aria-hidden="true"></div>
+      <div class="kids-hero-shade" aria-hidden="true"></div>
+      <div class="kids-hero-content container">
+        <div class="kids-hero-copy">
+          <div class="kids-hero-heading">
+            <p>Welcome to SMASH Kids</p>
+            <h1 id="kids-hero-title">Where Kids Dance,<br>Grow, and Shine.</h1>
+            <a class="hero-cta" href="https://form.jotform.com/212597786825069">Try a Kids Class $5</a>
+          </div>
+        </div>
+        <img class="kids-hero-image" src="assets/incoming/kids-schedule/kids-dance-group.jpg" alt="Young dancers at SMASH Dance Studio">
+      </div>
+    </section>
+    <section class="kids-program container" aria-labelledby="kids-program-title">
+      <div class="kids-program-copy">
+        <p class="section-eyebrow">SMASH DANCE</p>
+        <h2 id="kids-program-title">Kids Dance Program in San Antonio</h2>
+        <p>At <strong>SMASH Dance Studio</strong> in <strong>San Antonio</strong>, we help kids ages 3–17 discover confidence, creativity, and joy through movement. Our classes welcome beginners through experienced young dancers in a fun and encouraging space. Students can explore a variety of styles including <em>Ballet, Jazz, Hip Hop, Breakdance, Musical Theatre, Pom, K Pop, Acro, and Zumba Kids</em>. Our <strong>Kosmic Kpop Dance Team</strong> gives passionate young dancers a chance to perform and grow as part of a close-knit group. Every year, our students take the stage for two showcases that raise funds for local charities, teaching the importance of community and kindness through dance. At SMASH, we believe every child deserves a place to move, express themselves, and be part of something special.</p>
+        <div class="story-actions">
+          <a class="story-cta story-action story-action-kids" href="https://form.jotform.com/212597786825069">Try Kids Class $5</a>
+          <a class="story-cta story-action story-action-adults" href="https://www.paypal.com/webapps/shoppingcart?flowlogging_id=f4440367567ae&amp;mfid=1791240107711_f4440367567ae#/checkout/openButton">Try Adult Class $5</a>
+          <a class="story-cta story-action story-action-workshops" href="index.html#specialty-workshops">Specialty Workshops</a>
+        </div>
+      </div>
+      <div class="kids-carousel" data-carousel aria-label="Kids Dance Studio photos">
+        <img class="kids-carousel-slide is-active" src="assets/incoming/kids-schedule/kids-carousel-team.jpg" alt="Kids and instructors at SMASH Dance Studio" loading="lazy">
+        <img class="kids-carousel-slide" src="assets/incoming/kids-schedule/kids-carousel-play.jpg" alt="Kids enjoying dance class at SMASH" loading="lazy">
+        <img class="kids-carousel-slide" src="assets/incoming/kids-schedule/kids-carousel-friends.jpg" alt="Kids smiling together at SMASH Dance Studio" loading="lazy">
+        <img class="kids-carousel-slide" src="assets/incoming/kids-schedule/kids-carousel-class.jpg" alt="Kids dancing with their SMASH instructor" loading="lazy">
+        <button class="kids-carousel-control kids-carousel-previous" type="button" data-carousel-direction="-1" aria-label="Previous Kids Dance photo">‹</button>
+        <button class="kids-carousel-control kids-carousel-next" type="button" data-carousel-direction="1" aria-label="Next Kids Dance photo">›</button>
+      </div>
+    </section>
+    <section class="kids-schedule-feature" aria-labelledby="kids-schedule-title">
+      <div class="container">
+        <h2 id="kids-schedule-title">Kids Class Schedule</h2>
+        <p class="kids-schedule-intro">Choose a day to view our current kids classes. Select More Info for details and registration.</p>
+        <div class="kids-schedule-tabs" role="tablist" aria-label="Kids class schedule days">
+          <button class="kids-schedule-tab" type="button" role="tab" data-day="Monday" aria-selected="true">Monday</button>
+          <button class="kids-schedule-tab" type="button" role="tab" data-day="Tuesday" aria-selected="false">Tuesday</button>
+          <button class="kids-schedule-tab" type="button" role="tab" data-day="Wednesday" aria-selected="false">Wednesday</button>
+          <button class="kids-schedule-tab" type="button" role="tab" data-day="Thursday" aria-selected="false">Thursday</button>
+          <button class="kids-schedule-tab" type="button" role="tab" data-day="Friday" aria-selected="false">Friday</button>
+          <button class="kids-schedule-tab" type="button" role="tab" data-day="Saturday" aria-selected="false">Saturday</button>
+        </div>
+        <div class="kids-schedule-results-head"><h3 id="kids-selected-day">Monday Classes</h3><p id="kids-class-count"></p></div>
+        <section class="kids-schedule-card-grid" id="kids-schedule-card-grid" aria-live="polite"></section>
+        <aside class="kids-schedule-cta"><p>Not sure where to begin? Try a class first and find the best fit for your child.</p><a class="story-cta" href="https://form.jotform.com/212597786825069">Try a Kids Class $5</a></aside>
+      </div>
+    </section>
+    <section class="kids-class-modal" hidden role="dialog" aria-modal="true" aria-labelledby="kids-class-modal-title">
+      <button class="kids-class-modal-backdrop" type="button" aria-label="Close class details"></button>
+      <div class="kids-class-modal-dialog">
+        <button class="kids-class-modal-close" type="button" aria-label="Close class details">×</button>
+        <h2 id="kids-class-modal-title"></h2>
+        <p class="kids-class-modal-subtitle"></p>
+        <p class="kids-class-modal-description"></p>
+        <div class="kids-class-modal-facts"><p><strong>Day &amp; time:</strong> <span class="kids-class-modal-time"></span></p><p class="kids-class-modal-bring-row"><strong>What to bring:</strong> <span class="kids-class-modal-bring"></span></p></div>
+        <a class="kids-class-modal-cta" href="https://form.jotform.com/212597786825069">Try a Kids Class $5</a>
+      </div>
+    </section>
+    <section class="gallery-section young-dancers" aria-labelledby="young-dancers-title">
+      <div class="container">
+        <h2 id="young-dancers-title">Our Young Dancers Shine</h2>
+        <div class="gallery-carousel">
+          <button class="gallery-control gallery-prev" type="button" aria-label="Previous gallery images" data-gallery-direction="-1">‹</button>
+          <div class="gallery-track" aria-label="Young dancers gallery">
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/showcase-dance.jpg" alt="Young dancers performing at the SMASH showcase" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/showcase-group.jpg" alt="SMASH Dance showcase group on stage" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/group-portrait.jpg" alt="Kids posing together at SMASH Dance Studio" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/class-jumping.jpg" alt="Kids dancing together in class" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/class-stretching.jpg" alt="Young dancers stretching in the studio" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/group-poses.jpg" alt="Kids making fun dance poses at SMASH" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/team-portrait.jpg" alt="SMASH Dance youth team portrait" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/young-ballet.jpg" alt="Young dancers practicing ballet poses" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/dance-practice.jpg" alt="Kids learning choreography at SMASH" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/smash-family.jpg" alt="SMASH Dance students smiling together" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/circle-class.jpg" alt="Students gathered in a circle during class" loading="lazy"></button>
+            <button class="gallery-lightbox" type="button"><img src="assets/incoming/kids-schedule/young-dancers/stretching-class.jpg" alt="Young dancers stretching together" loading="lazy"></button>
+          </div>
+          <button class="gallery-control gallery-next" type="button" aria-label="Next gallery images" data-gallery-direction="1">›</button>
+        </div>
+      </div>
+    </section>
+    <section class="media-block kids-videos" aria-labelledby="kids-videos-title">
+      <div class="container">
+        <h2 id="kids-videos-title">YouTube Videos</h2>
+        <div class="video-grid">
+          <a class="kids-video-placeholder" href="https://youtu.be/9SdaRCRFv-k" target="_blank" rel="noreferrer">
+            <span class="kids-video-play" aria-hidden="true">▶</span>
+            <span>Watch SMASH Kids Dance</span>
+          </a>
+          <a class="kids-video-placeholder" href="https://youtu.be/bx25T2NcI3I" target="_blank" rel="noreferrer">
+            <span class="kids-video-play" aria-hidden="true">▶</span>
+            <span>Watch Kids in Motion</span>
+          </a>
+          <a class="kids-video-placeholder" href="https://youtu.be/sZwxVcpWzKI" target="_blank" rel="noreferrer">
+            <span class="kids-video-play" aria-hidden="true">▶</span>
+            <span>Watch the SMASH Spring Showcase</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="why-section" aria-labelledby="kids-faq-title">
+      <div class="why-shell container">
+        <h2 id="kids-faq-title">Why Choose SMASH Dance</h2>
+        <div class="why-grid">
+          <div class="why-accordion">
+            <details open>
+              <summary>What age groups do you offer kids dance classes for?</summary>
+              <p>Our kids programs start as young as age 3 and continue through teens. Each class is designed to match the student’s age, skill level, and creativity, helping them grow in confidence and coordination.</p>
+            </details>
+            <details>
+              <summary>What styles of dance can my child learn at SMASH Dance?</summary>
+              <p>We offer a variety of styles including <strong>Hip Hop, Ballet, Jazz, Contemporary, Tumbling, and K-Pop.</strong> Our instructors focus on building strong foundations while keeping each class fun, active, and engaging.</p>
+            </details>
+            <details>
+              <summary>How can I register my child for a class?</summary>
+              <p>We always encourage parents to let their child <strong>try a class first</strong> to see if they enjoy it and feel comfortable in the environment. Once they find the class that fits them best, registration can easily be completed online or at the studio.</p>
+            </details>
+            <details>
+              <summary>What should my child wear to class?</summary>
+              <p>Comfortable, fitted clothing that allows movement works best. Sneakers or dance shoes are recommended depending on the class. Avoid jeans or loose jewelry for safety and mobility.</p>
+            </details>
+            <details>
+              <summary>Do kids perform during the year?</summary>
+              <p>Yes. Our students participate in <strong>two showcases each year</strong>, giving them the opportunity to perform on stage for family and friends while supporting local charities through our <strong>Project SMASH</strong> community outreach program.</p>
+            </details>
+            <details>
+              <summary>What is the Kosmic K-Pop Dance Team?</summary>
+              <p><strong>Kosmic</strong> is our exciting <strong>K-Pop performance group</strong> for kids and teens who love high-energy choreography and teamwork. Members train together to learn iconic routines and perform at local <strong>San Antonio events and showcases</strong>. It’s a great way to build confidence, stage presence, and lifelong friendships.</p>
+            </details>
+            <details>
+              <summary>Affordable and Flexible Options</summary>
+              <p>We make dance accessible with drop-in classes, multi-class packs, and unlimited memberships that fit every schedule and budget.</p>
+            </details>
+            <details>
+              <summary>Can I see my kids in class?</summary>
+              <p>No, parents are not allowed in class during regular sessions. However, parents are welcome to stay for the <strong>first class</strong> until their child feels comfortable. After that, parents can <strong>watch a live stream of the class directly on their phone through our app</strong>, giving them peace of mind while allowing kids to stay focused and independent in class.</p>
+            </details>
+          </div>
+          <img class="why-image" src="assets/incoming/homepage/why-choose-smash-dance.jpg" alt="Inspire Others to Dance at SMASH" loading="lazy">
+        </div>
+      </div>
+    </section>
+    <script>
+      const kidsScheduleFeature = document.querySelector('.kids-schedule-feature');
+      const kidsFaq = document.querySelector('.why-section');
+      if (kidsScheduleFeature && kidsFaq) kidsScheduleFeature.after(kidsFaq);
+    </script>
+    <section class="highlights other-programs kids-other-programs" aria-labelledby="kids-other-programs-title">
+      <div class="container">
+        <h2 id="kids-other-programs-title">Other Programs</h2>
+        <div class="highlight-grid">
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/other-program-studio-rental.jpg" alt="SMASH Dance Studio rental space" loading="lazy">
+            <h3>Studio Rentals</h3>
+            <p>Rent one of our 3 rooms available for rehearsals, fitness classes, or private events. Affordable and spacious with an inviting atmosphere perfect for teachers, performers, and creators.</p>
+            <a class="highlight-cta" href="tel:210-201-2873">Call Us</a>
+          </article>
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/other-program-bachelorette.jpg" alt="Bachelorette dance party at SMASH" loading="lazy">
+            <h3>Bachelorette Parties</h3>
+            <p>Celebrate your special night with a private San Antonio bachelorette dance party. Enjoy fun customized routines that create unforgettable memories with your closest friends.</p>
+            <a class="highlight-cta" href="parties.html">More Info</a>
+          </article>
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/other-program-choreographies.png" alt="Choreographies by SMASH" loading="lazy">
+            <h3>Choreographies</h3>
+            <p>Get professional San Antonio choreography for weddings, performances, or competitions. Our instructors create creative and polished routines that match your unique style and skill level.</p>
+            <a class="highlight-cta" href="quinceanera.html">More Info</a>
+          </article>
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/studio-highlight-community.jpg" alt="Project SMASH community outreach" loading="lazy">
+            <h3>Community Outreach</h3>
+            <p>Project SMASH supports San Antonio youth through dance and fitness programs that build confidence, creativity, and community while inspiring positive change through movement.</p>
+            <a class="highlight-cta" href="project-smash.html">More Info</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <script>
+      const kidsVideos = document.querySelector('.kids-videos');
+      const kidsOtherPrograms = document.querySelector('.kids-other-programs');
+      if (kidsVideos && kidsOtherPrograms) kidsVideos.before(kidsOtherPrograms);
+    </script>
+  </main>
+  <div id="shared-footer"></div>
+  <div class="lightbox" id="site-lightbox" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-backdrop" type="button" aria-label="Close viewer" data-lightbox-close></button>
+    <div class="lightbox-dialog">
+      <button class="lightbox-close" type="button" aria-label="Close viewer" data-lightbox-close>×</button>
+      <button class="lightbox-nav lightbox-previous" type="button" aria-label="Previous image">‹</button>
+      <div class="lightbox-content"></div>
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">›</button>
+    </div>
+  </div>
+  <script>
+    fetch('index.html')
+      .then((response) => response.text())
+      .then((markup) => {
+        const source = new DOMParser().parseFromString(markup, 'text/html');
+        const header = source.querySelector('.site-header');
+        const footer = source.querySelector('.site-footer');
+        const target = document.querySelector('#shared-header');
+        const footerTarget = document.querySelector('#shared-footer');
+        if (!header || !target) return;
+        header.querySelectorAll('[src]').forEach((element) => {
+          element.src = new URL(element.getAttribute('src'), window.location.href).href;
+        });
+        target.replaceWith(header);
+        header.querySelectorAll('.drop-menu a').forEach((link) => {
+          if (link.textContent.trim() === 'Kids Schedule') link.href = 'kids-schedule.html';
+          if (link.textContent.trim() === 'Adult Schedule') link.href = 'adult-classes.html';
+          if (link.textContent.trim() === 'Adult Parties') link.href = 'parties.html';
+          if (link.textContent.trim() === 'Kids Parties') link.href = 'kids-parties.html';
+        });
+        header.querySelectorAll('.main-nav > a').forEach((link) => {
+          if (link.textContent.trim() === 'Deals') link.href = 'deals.html';
+        });
+        const menu = header.querySelector('.menu-toggle');
+        const nav = header.querySelector('.main-nav');
+        menu?.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          menu.setAttribute('aria-expanded', String(open));
+  menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  menu.querySelector('.sr-only').textContent = open ? 'Close navigation' : 'Open navigation';
+        });
+        if (footer && footerTarget) {
+          footer.querySelectorAll('[src]').forEach((element) => {
+            element.src = new URL(element.getAttribute('src'), window.location.href).href;
+          });
+          footerTarget.replaceWith(footer);
+        }
+      });
+  </script>
+  <script>
+    (() => {
+      const grid = document.querySelector('#kids-schedule-card-grid');
+      const heading = document.querySelector('#kids-selected-day');
+      const count = document.querySelector('#kids-class-count');
+      const modal = document.querySelector('.kids-class-modal');
+      if (!grid || !heading || !count || !modal) return;
+
+      let classes = [];
+      const escapeHtml = (value) => String(value || '').replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+      const isActive = (value) => value === true || String(value).trim().toLowerCase() === 'yes';
+      const closeModal = () => { modal.hidden = true; };
+      const openModal = (item) => {
+        const time = item.end_time ? `${item.start_time} - ${item.end_time}` : item.start_time;
+        modal.querySelector('#kids-class-modal-title').textContent = item.class_name;
+        modal.querySelector('.kids-class-modal-subtitle').textContent = `${item.age_range} · ${item.dance_style}`;
+        modal.querySelector('.kids-class-modal-description').textContent = item.short_description || 'A full class description will be added soon.';
+        modal.querySelector('.kids-class-modal-time').textContent = `${item.day}, ${time}`;
+        const bringRow = modal.querySelector('.kids-class-modal-bring-row');
+        bringRow.hidden = !item.what_to_bring;
+        modal.querySelector('.kids-class-modal-bring').textContent = item.what_to_bring || '';
+        modal.querySelector('.kids-class-modal-cta').href = item.sign_up_link || 'https://form.jotform.com/212597786825069';
+        modal.hidden = false;
+      };
+      const render = (day) => {
+        const selected = classes.filter((item) => isActive(item.active) && item.day === day).sort((a, b) => a.display_order - b.display_order);
+        heading.textContent = `${day} Classes`;
+        count.textContent = `${selected.length} ${selected.length === 1 ? 'class' : 'classes'} available`;
+        grid.innerHTML = selected.map((item) => {
+          const [hour, period] = item.start_time.split(' ');
+          const description = item.short_description ? `<p>${escapeHtml(item.short_description)}</p>` : '';
+          return `<article class="kids-schedule-card"><div class="kids-schedule-time"><strong>${escapeHtml(hour)}</strong><span>${escapeHtml(period)}</span></div><div class="kids-schedule-copy"><h3>${escapeHtml(item.class_name)}</h3>${description}<div class="kids-schedule-tags"><span>${escapeHtml(item.age_range)}</span><span>${escapeHtml(item.dance_style)}</span></div><button class="kids-schedule-more" type="button" data-class-id="${escapeHtml(item.class_id)}">More Info</button></div></article>`;
+        }).join('');
+        grid.querySelectorAll('.kids-schedule-more').forEach((button) => button.addEventListener('click', () => openModal(classes.find((item) => item.class_id === button.dataset.classId))));
+      };
+
+      document.querySelectorAll('.kids-schedule-tab').forEach((button) => button.addEventListener('click', () => {
+        document.querySelectorAll('.kids-schedule-tab').forEach((tab) => tab.setAttribute('aria-selected', String(tab === button)));
+        render(button.dataset.day);
+      }));
+      modal.querySelector('.kids-class-modal-close').addEventListener('click', closeModal);
+      modal.querySelector('.kids-class-modal-backdrop').addEventListener('click', closeModal);
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
+      fetch('data/kids-schedule-current.json')
+        .then((response) => response.json())
+        .then((data) => { classes = data; render('Monday'); })
+        .catch(() => { heading.textContent = 'Schedule unavailable'; count.textContent = 'Please refresh and try again.'; });
+    })();
+  </script>
+  <script src="script.js?v=kids-carousel-2"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SMASH Dance in the Media | SMASH Dance Studio</title>
+  <meta name="description" content="Explore San Antonio media features from SMASH Dance Studio, including appearances on News 4, KENS 5 Great Day SA, and KSAT 12 SA Live.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="media-page">
+  <div id="shared-header"></div>
+
+  <main>
+    <section class="media-hero" aria-labelledby="media-hero-title">
+      <div class="container media-hero-content">
+        <p class="media-hero-eyebrow">MEDIA &amp; PRESS</p>
+        <h1 id="media-hero-title"><span>SMASH Dance</span><span>In the Media</span></h1>
+      </div>
+    </section>
+
+    <section class="media-feature" aria-labelledby="media-feature-title">
+      <div class="container">
+        <div class="media-feature-layout">
+          <div class="media-feature-copy">
+            <p class="media-feature-eyebrow">LOCAL MEDIA FEATURES</p>
+            <h2 id="media-feature-title">Sharing the SMASH Story</h2>
+            <p>We are proud to have been invited by local media outlets including <strong>News 4 San Antonio</strong>, <strong>KENS 5’s Great Day SA</strong>, and <strong>KSAT 12’s SA Live</strong> to showcase the positive impact of our programs. Each segment gave us the opportunity to share how <strong>SMASH Dance</strong> continues to promote health, expression, and empowerment through the art of dance.</p>
+          </div>
+          <div class="media-feature-image" aria-label="SMASH Dance Studio interior">
+            <div class="media-feature-list" aria-label="Featured media appearances">
+              <p>OUR FEATURES INCLUDE</p>
+              <div class="media-feature-item"><strong>News 4 San Antonio / SA Living</strong><em>“Shatter Your Goals with SMASH Dance Fitness”</em><a href="https://news4sanantonio.com/sa-living/shatter-your-goals-with-smash-dance-fitness?utm_source=chatgpt.com" target="_blank" rel="noopener">Direct Link</a></div>
+              <div class="media-feature-item"><strong>KENS 5 / Great Day SA</strong><em>“Smash the Holiday Calories with SMASH Dance”</em></div>
+              <div class="media-feature-item"><strong>KSAT 12 / SA Live</strong><em>“SMASH Dance and Project SMASH Inspire San Antonio Through Movement”</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="media-videos" aria-labelledby="media-videos-title">
+      <div class="container">
+        <div class="media-videos-heading">
+          <p>ON SCREEN</p>
+          <h2 id="media-videos-title">SMASH Dance in the News</h2>
+        </div>
+        <div class="media-video-grid">
+          <article class="media-video"><iframe src="https://www.youtube.com/embed/T_uhODFyat0" title="Smash away those calories | Great Day SA" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></article>
+          <article class="media-video"><iframe src="https://www.youtube.com/embed/tbN5yDg38Ns" title="SMASH Dance | SA Live | KSAT 12" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></article>
+          <article class="media-video"><iframe src="https://www.youtube.com/embed/fHyuyY05gGQ?start=166" title="Project SMASH" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="highlights media-highlights" aria-labelledby="media-highlights-title">
+      <div class="container">
+        <h2 id="media-highlights-title">Studio Highlights</h2>
+        <div class="highlight-grid">
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/studio-highlight-kids.jpg" alt="Kids dancing at SMASH Dance Studio" loading="lazy">
+            <h3>Kids Dance Programs</h3>
+            <p>Inspiring kids dance classes in San Antonio that build confidence, creativity, and coordination in a positive, supportive space.</p>
+            <a class="highlight-cta" href="https://form.jotform.com/212597786825069">Kids Schedule</a>
+          </article>
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/studio-highlight-adults.jpg" alt="Adult fitness class at SMASH Dance Studio" loading="lazy">
+            <h3>Adult Fitness Classes</h3>
+            <p>Energize your body and mind with fun fitness classes that build confidence and connect you with the local dance community.</p>
+            <a class="highlight-cta" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=S56RD2K69JEHC">Adult Schedule</a>
+          </article>
+          <article class="highlight-card">
+            <img src="assets/incoming/homepage/studio-highlight-community.jpg" alt="Project SMASH community outreach event" loading="lazy">
+            <h3>Community Outreach</h3>
+            <p>SMASH Dance supports youth development, creative arts, and partnerships that empower and uplift families across the community.</p>
+            <a class="highlight-cta" href="project-smash.html">Project SMASH</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="shared-footer"></div>
+
+  <script>
+    fetch('index.html')
+      .then((response) => response.ok ? response.text() : Promise.reject(new Error('Unable to load shared site pieces.')))
+      .then((html) => {
+        const source = new DOMParser().parseFromString(html, 'text/html');
+        const header = source.querySelector('.site-header');
+        const footer = source.querySelector('.site-footer');
+        const headerTarget = document.querySelector('#shared-header');
+        const footerTarget = document.querySelector('#shared-footer');
+        [header, footer].filter(Boolean).forEach((section) => section.querySelectorAll('[src]').forEach((element) => {
+          element.src = new URL(element.getAttribute('src'), window.location.href).href;
+        }));
+        if (header && headerTarget) headerTarget.replaceWith(header);
+        if (footer && footerTarget) footerTarget.replaceWith(footer);
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>

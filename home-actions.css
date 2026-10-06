@@ -1,0 +1,53 @@
+/* Compact content action system. Navigation stays plain and consistent site-wide. */
+
+.story-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 660px;
+  margin-top: 26px;
+}
+
+.story-cta.story-action {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+
+.story-cta.story-action:hover { transform: translateY(-2px); box-shadow: 0 7px 14px rgba(23,37,54,.16); }
+.story-action-kids { background: #ffe500; color: #172536; }
+.story-action-adults { background: #d4543c; color: #fff; }
+.story-cta.story-action-workshops { background: #172536; color: #fff; }
+.story-cta.story-action-workshops:hover { background: #34465a; color: #fff; }
+
+/* Keep the Home action group as one balanced desktop row. */
+.home-page .story-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  gap: 6px;
+}
+
+.home-page .story-cta.story-action {
+  min-width: 0;
+  padding: 10px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .story-actions { display: grid; grid-template-columns: 1fr; gap: 9px; }
+  .story-cta.story-action { min-height: 46px; }
+}
