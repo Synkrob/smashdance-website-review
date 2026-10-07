@@ -129,19 +129,19 @@
             <img src="assets/incoming/homepage/studio-highlight-kids.jpg" alt="Kids dancing at SMASH Dance Studio" loading="lazy">
             <h3>Kids Dance Programs</h3>
             <p>Inspiring kids dance classes in San Antonio that build confidence, creativity, and coordination. Fun programs for all ages in a positive and supportive space.</p>
-            <a class="highlight-cta" href="https://form.jotform.com/212597786825069">Kids Schedule</a>
+            <a class="highlight-cta" href="kids-schedule.html">Kids Schedule</a>
           </article>
           <article class="highlight-card">
             <img src="assets/incoming/homepage/studio-highlight-adults.jpg" alt="Adult fitness class at SMASH Dance Studio" loading="lazy">
             <h3>Adult Fitness Classes</h3>
             <p>Energize your body and mind with San Antonio’s best dance fitness workouts. Fun classes that build confidence and connect you with our local dance community.</p>
-            <a class="highlight-cta" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=S56RD2K69JEHC">Adult Schedule</a>
+            <a class="highlight-cta" href="adult-classes.html">Adult Schedule</a>
           </article>
           <article class="highlight-card">
             <img src="assets/incoming/homepage/studio-highlight-community.jpg" alt="Project SMASH community outreach event" loading="lazy">
             <h3>Community Outreach</h3>
             <p>SMASH Dance supports the community through outreach programs, youth development, creative arts initiatives, and partnerships that empower, inspire, and uplift families and students.</p>
-            <a class="highlight-cta" href="#">Project SMASH</a>
+            <a class="highlight-cta" href="project-smash.html">Project SMASH</a>
           </article>
         </div>
       </div>
@@ -161,13 +161,13 @@
             <h3>Bachelorette Parties</h3>
             <img src="assets/incoming/deals/other-programs/deals-bachelorette.jpg" alt="Bachelorette dance party at SMASH" loading="lazy">
             <p>Celebrate your special night with a private San Antonio bachelorette dance party. Enjoy fun customized routines that create unforgettable memories with your closest friends.</p>
-            <a class="deals-other-cta" href="mailto:smashdancetx@gmail.com">More Info</a>
+            <a class="deals-other-cta" href="parties.html">More Info</a>
           </article>
           <article class="deals-other-program-card">
             <h3>Choreographies</h3>
             <img src="assets/incoming/deals/other-programs/deals-choreographies.jpg" alt="Choreographies by SMASH" loading="lazy">
             <p>Get professional San Antonio choreography for weddings, performances, or competitions. Our instructors create creative and polished routines that match your unique style and skill level.</p>
-            <a class="deals-other-cta" href="mailto:smashdancetx@gmail.com">More Info</a>
+            <a class="deals-other-cta" href="quinceanera.html">More Info</a>
           </article>
           <article class="deals-other-program-card">
             <h3>Community Outreach</h3>
@@ -237,7 +237,6 @@
           button.classList.toggle('is-active', selected);
           button.setAttribute('aria-selected', String(selected));
         });
-        thumbnails.querySelector(`button:nth-child(${activeIndex + 1})`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
       };
 
       slides.forEach((slide, index) => {
@@ -271,5 +270,7 @@
       startRotation();
     }
   </script>
+  <script src="navigation.js"></script>
+  <script src="trial-link-fix.js"></script>
 </body>
 </html>
