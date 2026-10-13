@@ -192,7 +192,7 @@
     <p class="workshop-lightbox-eyebrow">SMASH DANCE STUDIO</p>
     <h2 id="workshop-lightbox-title">Specialty Workshops &amp; Events</h2>
     <p class="workshop-lightbox-intro">Explore upcoming events, workshops, and Project SMASH community experiences. The sample cards below show staff how future workshop flyers and details will appear.</p>
-    <div class="workshop-card-grid">
+    <div class="workshop-card-grid" id="workshop-card-grid">
       <article class="workshop-card">
         <div class="workshop-card-image"><img src="assets/incoming/workshops/project-smash-casino-night.jpg" alt="Project SMASH Casino Night fundraiser flyer" loading="lazy"></div>
         <div class="workshop-card-copy">
@@ -203,16 +203,7 @@
           <a href="tel:210-201-2873">Call / Text to Reserve</a>
         </div>
       </article>
-      <article class="workshop-card">
-        <div class="workshop-card-image"><img src="assets/incoming/workshops/kpop-skate-night.jpg" alt="K-pop Skate Night fundraiser flyer" loading="lazy"></div>
-        <div class="workshop-card-copy">
-          <p class="workshop-card-date">Date to be announced</p>
-          <h3>K-pop Skate Night Fundraiser</h3>
-          <p>Project SMASH and Car-Vel Skate Center bring together skating, dancing, raffles, performers, concessions, and vendor opportunities.</p>
-          <p class="workshop-card-time">Time to be announced</p>
-          <a href="tel:210-201-2873">Call / Text for Details</a>
-        </div>
-      </article>
+      <div id="live-workshop-cards" aria-live="polite"></div>
       <article class="workshop-card workshop-card-sample">
         <div class="workshop-card-image"><img src="assets/sample-workshop-flyers/example-dance-foundations-1080x1350.png" alt="Sample Dance Foundations workshop flyer" loading="lazy"></div>
         <div class="workshop-card-copy">
@@ -253,12 +244,23 @@
           <span class="workshop-card-demo-button">Example only</span>
         </div>
       </article>
+      <article class="workshop-card">
+        <div class="workshop-card-image"><img src="assets/incoming/workshops/kpop-skate-night.jpg" alt="K-pop Skate Night fundraiser flyer" loading="lazy"></div>
+        <div class="workshop-card-copy">
+          <p class="workshop-card-date">Date to be announced</p>
+          <h3>K-pop Skate Night Fundraiser</h3>
+          <p>Project SMASH and Car-Vel Skate Center bring together skating, dancing, raffles, performers, concessions, and vendor opportunities.</p>
+          <p class="workshop-card-time">Time to be announced</p>
+          <a href="tel:210-201-2873">Call / Text for Details</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 <script src="navigation.js"></script>
 <script src="script.js"></script>
 <script src="trial-link-fix.js"></script>
+<script src="live-content.js"></script>
 <script>
   (() => {
     const modal = document.querySelector('#workshop-lightbox');
