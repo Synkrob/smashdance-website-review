@@ -14,9 +14,10 @@
       if (character === '"') {
         if (quoted && text[index + 1] === '"') { value += '"'; index += 1; }
         else quoted = !quoted;
-      } else if (character === ',' && !quoted) { row.push(value); value = ''; }
-      else if ((character === '\n' || character === '\r') && !quoted) {
-        if (character === '\r' && text[index + 1] === '\n') index += 1;
+      } else if (character === ',' && !quoted) {
+        row.push(value); value = '';
+      } else if ((character.charCodeAt(0) === 10 || character.charCodeAt(0) === 13) && !quoted) {
+        if (character.charCodeAt(0) === 13 && text.charCodeAt(index + 1) === 10) index += 1;
         row.push(value);
         if (row.some((cell) => cell.trim())) rows.push(row);
         row = [];
@@ -37,8 +38,12 @@
     } catch { return ''; }
   };
   const driveImage = (value) => {
-    const match = String(value).match(/[-\w]{25,}/);
-    return match ? `https://drive.google.com/thumbnail?id=${match[0]}&sz=w1200` : safeUrl(value);
+    const link = safeUrl(value);
+    if (!link) return '';
+    const url = new URL(link);
+    if (!/(^|\.)drive\.google\.com$/.test(url.hostname)) return link;
+    const match = link.match(/[-\w]{25,}/);
+    return match ? 'https://drive.google.com/thumbnail?id=' + match[0] + '&sz=w1200' : link;
   };
   const element = (tag, className, text) => {
     const node = document.createElement(tag);
@@ -51,14 +56,14 @@
     const imageWrap = element('div', 'workshop-card-image');
     const image = document.createElement('img');
     image.loading = 'lazy';
-    image.alt = item.image_alt || `${item.title || 'SMASH'} workshop flyer`;
+    image.alt = item.image_alt || (item.title || 'SMASH') + ' workshop flyer';
     image.src = driveImage(item.flyer_image_url) || 'assets/sample-workshop-flyers/workshop-flyer-dimensions-template-1080x1350.png';
     imageWrap.append(image);
     const copy = element('div', 'workshop-card-copy');
     if (item.event_date) copy.append(element('p', 'workshop-card-date', item.event_date));
     copy.append(element('h3', '', item.title || 'SMASH Workshop'));
     if (item.description) copy.append(element('p', '', item.description));
-    const time = [item.start_time, item.end_time].filter(Boolean).join('–');
+    const time = [item.start_time, item.end_time].filter(Boolean).join(' - ');
     if (time) copy.append(element('p', 'workshop-card-time', time));
     const reserveUrl = safeUrl(item.purchase_link);
     if (reserveUrl) {
@@ -73,7 +78,7 @@
   };
 
   fetch(workshopsFeed, { cache: 'no-store' })
-    .then((response) => { if (!response.ok) throw new Error(`Feed returned ${response.status}`); return response.text(); })
+    .then((response) => { if (!response.ok) throw new Error('Feed returned ' + response.status); return response.text(); })
     .then((csv) => {
       const workshops = parseCsv(csv)
         .filter((item) => active(item.smashdance))
