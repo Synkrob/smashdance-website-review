@@ -161,6 +161,7 @@
       </div>
     </section>
   </main>
+  <script src="schedule-feed.js"></script>
   <script>
     (() => {
       const grid = document.querySelector('#adult-schedule-card-grid');
@@ -179,7 +180,7 @@
         modal.querySelector('.adult-class-modal-subtitle').textContent = item.dance_style;
         modal.querySelector('.adult-class-modal-description').textContent = item.short_description || 'More class details will be added soon.';
         modal.querySelector('.adult-class-modal-time').textContent = `${item.day}, ${time}`;
-        modal.querySelector('.adult-class-modal-schedule').textContent = item.schedule_note || 'Weekly';
+        modal.querySelector('.adult-class-modal-schedule').textContent = item.schedule_note || 'See class description';
         modal.querySelector('.adult-class-modal-cta').href = item.sign_up_link || 'https://smashdance.salesvu.com/?';
         modal.hidden = false;
       };
@@ -190,7 +191,8 @@
         grid.innerHTML = selected.map((item) => {
           const [hour, period] = item.start_time.split(' ');
           const bookingUrl = escapeHtml(item.sign_up_link || 'https://smashdance.salesvu.com/?');
-          return `<article class="adult-schedule-card"><div class="adult-schedule-time"><strong>${escapeHtml(hour)}</strong><span>${escapeHtml(period)}</span></div><div class="adult-schedule-copy"><h3>${escapeHtml(item.class_name)}</h3><p>${escapeHtml(item.short_description)}</p><div class="adult-schedule-tags"><span>${escapeHtml(item.dance_style)}</span><span class="adult-schedule-special">${escapeHtml(item.schedule_note || 'Weekly')}</span></div><div class="adult-schedule-actions"><button class="adult-schedule-more" type="button" data-class-id="${escapeHtml(item.class_id)}">More Info</button><a class="adult-schedule-book" href="${bookingUrl}" target="_blank" rel="noopener">Book a Class</a></div></div></article>`;
+          const scheduleTag = item.schedule_note ? `<span class="adult-schedule-special">${escapeHtml(item.schedule_note)}</span>` : '';
+          return `<article class="adult-schedule-card"><div class="adult-schedule-time"><strong>${escapeHtml(hour)}</strong><span>${escapeHtml(period)}</span></div><div class="adult-schedule-copy"><h3>${escapeHtml(item.class_name)}</h3><p>${escapeHtml(item.short_description)}</p><div class="adult-schedule-tags"><span>${escapeHtml(item.dance_style)}</span>${scheduleTag}</div><div class="adult-schedule-actions"><button class="adult-schedule-more" type="button" data-class-id="${escapeHtml(item.class_id)}">More Info</button><a class="adult-schedule-book" href="${bookingUrl}" target="_blank" rel="noopener">Book a Class</a></div></div></article>`;
         }).join('');
         grid.querySelectorAll('.adult-schedule-more').forEach((button) => button.addEventListener('click', () => openModal(classes.find((item) => item.class_id === button.dataset.classId))));
       };
@@ -202,8 +204,7 @@
       modal.querySelector('.adult-class-modal-close').addEventListener('click', closeModal);
       modal.querySelector('.adult-class-modal-backdrop').addEventListener('click', closeModal);
       document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
-      fetch('data/adult-schedule-current.json')
-        .then((response) => response.json())
+      window.loadSmashSchedule('adults', 'data/adult-schedule-current.json')
         .then((data) => { classes = Array.isArray(data) ? data : []; render('Tuesday'); })
         .catch(() => { count.textContent = 'Schedule details will be available soon.'; });
     })();

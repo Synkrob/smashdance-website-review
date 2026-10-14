@@ -253,6 +253,7 @@
         }
       });
   </script>
+  <script src="schedule-feed.js"></script>
   <script>
     (() => {
       const grid = document.querySelector('#kids-schedule-card-grid');
@@ -296,8 +297,7 @@
       modal.querySelector('.kids-class-modal-close').addEventListener('click', closeModal);
       modal.querySelector('.kids-class-modal-backdrop').addEventListener('click', closeModal);
       document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
-      fetch('data/kids-schedule-current.json')
-        .then((response) => response.json())
+      window.loadSmashSchedule('kids', 'data/kids-schedule-current.json')
         .then((data) => { classes = data; render('Monday'); })
         .catch(() => { heading.textContent = 'Schedule unavailable'; count.textContent = 'Please refresh and try again.'; });
     })();
