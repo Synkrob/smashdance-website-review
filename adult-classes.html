@@ -46,13 +46,13 @@
           <p>Choose a day to see available adult classes. Special Thursday schedules are clearly marked on each card.</p>
         </div>
         <div class="adult-schedule-tabs" role="tablist" aria-label="Adult class schedule days">
-          <button class="adult-schedule-tab" type="button" role="tab" aria-selected="true" data-day="Tuesday">Tuesday</button>
+          <button class="adult-schedule-tab" type="button" role="tab" aria-selected="true" data-day="Monday">Monday</button><button class="adult-schedule-tab" type="button" role="tab" aria-selected="false" data-day="Tuesday">Tuesday</button>
           <button class="adult-schedule-tab" type="button" role="tab" aria-selected="false" data-day="Wednesday">Wednesday</button>
           <button class="adult-schedule-tab" type="button" role="tab" aria-selected="false" data-day="Thursday">Thursday</button>
           <button class="adult-schedule-tab" type="button" role="tab" aria-selected="false" data-day="Sunday">Sunday</button>
         </div>
         <div class="adult-schedule-results-head">
-          <h3 id="adult-selected-day">Tuesday Classes</h3>
+          <h3 id="adult-selected-day">Monday Classes</h3>
           <p id="adult-class-count">Loading classes…</p>
         </div>
         <div class="adult-schedule-card-grid" id="adult-schedule-card-grid" aria-live="polite"></div>
@@ -170,7 +170,7 @@
       const modal = document.querySelector('.adult-class-modal');
       if (!grid || !heading || !count || !modal) return;
 
-      let classes = [];
+      let classes = []; const classDisplayOverrides = {'adult-mon-mixxedfit': {dance_style: 'Independent Program', short_description: 'With Josh. Pay at the door: $5 for SMASH members or $10 drop-in.', what_to_bring: 'Pay at the door. $5 for SMASH members or $10 drop-in.'}};
       const isActive = (value) => value === true || String(value).trim().toLowerCase() === 'yes';
       const escapeHtml = (value) => String(value || '').replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
       const closeModal = () => { modal.hidden = true; };
@@ -205,7 +205,7 @@
       modal.querySelector('.adult-class-modal-backdrop').addEventListener('click', closeModal);
       document.addEventListener('keydown', (event) => { if (event.key === 'Escape') closeModal(); });
       window.loadSmashSchedule('adults', 'data/adult-schedule-current.json')
-        .then((data) => { classes = Array.isArray(data) ? data : []; render('Tuesday'); })
+        .then((data) => { classes = Array.isArray(data) ? data : []; const mondayFallback = [{active:'Yes',day:'Monday',start_time:'6:00 PM',end_time:'7:00 PM',class_name:'Cardio Toning',age_range:'Adults',dance_style:'Fitness',instructor:'Cynthia',short_description:'Cardio fitness class with Cynthia.',what_to_bring:'Bring water and comfortable shoes.',sign_up_link:'https://smashdance.salesvu.com/',display_order:1,class_id:'adult-mon-cardio-toning',schedule_note:'Weekly'},{active:'Yes',day:'Monday',start_time:'7:15 PM',end_time:'8:15 PM',class_name:'MIXXEDFIT',age_range:'Adults',dance_style:'Independent Program',instructor:'Josh',short_description:'With Josh. Pay at the door: $5 for SMASH members or $10 drop-in.',what_to_bring:'Pay at the door. $5 for SMASH members or $10 drop-in.',sign_up_link:'https://smashdance.salesvu.com/',display_order:2,class_id:'adult-mon-mixxedfit',schedule_note:'Weekly'}]; mondayFallback.forEach((fallback) => { if (!classes.some((item) => item.day === fallback.day && item.class_name === fallback.class_name)) classes.push(fallback); }); classes = classes.map((item) => ({ ...item, ...(classDisplayOverrides[item.class_id] || {}) })); render('Monday'); })
         .catch(() => { count.textContent = 'Schedule details will be available soon.'; });
     })();
 
