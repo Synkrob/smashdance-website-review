@@ -30,8 +30,8 @@
       <div><small>STAFF TOOLS</small><h2>Update the studio site</h2></div>
       <nav class="side-nav">
         <button class="is-active" type="button" data-view="dashboard"><span class="side-icon">⌂</span><span>Dashboard</span></button>
-        <button type="button" data-view="classes"><span class="side-icon">K</span><span>Kids Classes</span></button>
-        <button type="button" data-view="classes"><span class="side-icon">A</span><span>Adult Classes</span></button>
+        <button type="button" data-view="classes" data-program="kids"><span class="side-icon">K</span><span>Kids Classes</span></button>
+        <button type="button" data-view="classes" data-program="adults"><span class="side-icon">A</span><span>Adult Classes</span></button>
         <button type="button" data-view="workshops"><span class="side-icon">W</span><span>Workshops</span></button>
         <button type="button" data-view="videos"><span class="side-icon">V</span><span>Videos</span></button>
       </nav>
@@ -39,32 +39,26 @@
     </aside>
 
     <main class="main">
-      <div class="notice"><span><strong>Prototype only.</strong> This shows the staff experience. No real website or Google Sheet data is changed here.</span><span class="prototype-tag">PRIVATE PREVIEW</span></div>
+      <div class="notice"><span id="content-status"><strong>Connecting to live content.</strong> This editor will show the same visitor-safe schedule, workshop, and video data used by the review site. Editing and publishing are not enabled yet.</span><span class="prototype-tag" id="content-status-tag">LOADING</span></div>
       <section class="dashboard-view" id="dashboard-view">
         <div class="page-heading"><div><p class="eyebrow">WELCOME BACK</p><h2>What do you need to update?</h2><p>Choose a section, make only the needed changes, then review before publishing.</p></div></div>
         <div class="dashboard-grid">
-          <article class="manager-card"><p class="label">WEEKLY SCHEDULE</p><h3>Kids Classes</h3><p>Update days, times, ages, instructors, and descriptions.</p><div class="card-footer"><span class="count"><span>24</span> active classes</span><button class="button button--small" type="button" data-open="classes">Manage Kids</button></div></article>
-          <article class="manager-card manager-card--adults"><p class="label">WEEKLY SCHEDULE</p><h3>Adult Classes</h3><p>Manage class details, specialty schedules, and active status.</p><div class="card-footer"><span class="count"><span>9</span> active classes</span><button class="button button--small" type="button" data-open="classes">Manage Adults</button></div></article>
-          <article class="manager-card manager-card--workshops"><p class="label">UPCOMING EVENTS</p><h3>Specialty Workshops</h3><p>Drag in a flyer, add the event details, and publish it when ready.</p><div class="card-footer"><span class="count"><span>2</span> upcoming events</span><button class="button button--small" type="button" data-open="workshops">Manage Workshops</button></div></article>
-          <article class="manager-card manager-card--videos"><p class="label">PAGE MEDIA</p><h3>Videos</h3><p>Replace a YouTube link without changing the page layout.</p><div class="card-footer"><span class="count"><span>6</span> video spots</span><button class="button button--small button--navy" type="button" data-open="videos">Manage Videos</button></div></article>
+          <article class="manager-card"><p class="label">WEEKLY SCHEDULE</p><h3>Kids Classes</h3><p>Review days, times, ages, instructors, and descriptions from the connected content source.</p><div class="card-footer"><span class="count"><span id="kids-count">…</span> active classes</span><button class="button button--small" type="button" data-open="classes" data-program="kids">Manage Kids</button></div></article>
+          <article class="manager-card manager-card--adults"><p class="label">WEEKLY SCHEDULE</p><h3>Adult Classes</h3><p>Review class details, specialty schedules, and active status from the connected content source.</p><div class="card-footer"><span class="count"><span id="adults-count">…</span> active classes</span><button class="button button--small" type="button" data-open="classes" data-program="adults">Manage Adults</button></div></article>
+          <article class="manager-card manager-card--workshops"><p class="label">UPCOMING EVENTS</p><h3>Specialty Workshops</h3><p>Review the flyer, event details, reservation link, and active status together.</p><div class="card-footer"><span class="count"><span id="workshops-count">…</span> active events</span><button class="button button--small" type="button" data-open="workshops">Manage Workshops</button></div></article>
+          <article class="manager-card manager-card--videos"><p class="label">PAGE MEDIA</p><h3>Videos</h3><p>Review the connected video rows and their intended page placement.</p><div class="card-footer"><span class="count"><span id="videos-count">…</span> video rows</span><button class="button button--small button--navy" type="button" data-open="videos">Manage Videos</button></div></article>
         </div>
       </section>
 
       <section class="schedule-panel" id="classes-view" hidden>
-        <div class="panel-head"><div><p class="eyebrow">KIDS CLASSES</p><h3>Weekly class cards</h3><p>Choose a day, then edit, hide, or add a card. This resembles the public schedule without exposing spreadsheet columns.</p></div><button class="button" type="button" data-edit="new">+ Add a Class</button></div>
+        <div class="panel-head"><div><p class="eyebrow" id="schedule-program-label">KIDS CLASSES</p><h3 id="schedule-title">Weekly class cards</h3><p>Choose a day to review the class cards that are currently connected to the public review site. Editing is intentionally disabled during this connection test.</p></div><button class="button" type="button" data-edit="new">Preview Add a Class</button></div>
         <div class="day-tabs" aria-label="Choose a day"><button class="is-active" type="button">Monday</button><button type="button">Tuesday</button><button type="button">Wednesday</button><button type="button">Thursday</button><button type="button">Friday</button><button type="button">Saturday</button></div>
-        <div class="class-grid">
-          <article class="class-card"><div class="class-time">5:05<br>PM</div><div class="class-copy"><div class="class-meta"><span>Ages 6 to 12</span><span>Active</span></div><h4>Zumba Kids</h4><p>High-energy movement that builds rhythm, confidence, and coordination.</p><div class="class-actions"><span class="toggle"><button class="switch is-on" type="button" aria-label="Toggle Zumba Kids active"></button>Live on site</span><button class="button button--small button--navy" type="button" data-edit="Zumba Kids">Edit</button></div></div></article>
-          <article class="class-card"><div class="class-time">6:00<br>PM</div><div class="class-copy"><div class="class-meta"><span>Ages 4 to 5</span><span>Active</span></div><h4>Mini Hip Hop</h4><p>A fun beginner dance class designed for young movers.</p><div class="class-actions"><span class="toggle"><button class="switch is-on" type="button" aria-label="Toggle Mini Hip Hop active"></button>Live on site</span><button class="button button--small button--navy" type="button" data-edit="Mini Hip Hop">Edit</button></div></div></article>
-        </div>
+        <div class="class-grid" id="live-class-grid" aria-live="polite"><p class="help">Loading connected class cards…</p></div>
       </section>
 
       <section class="workshop-panel" id="workshops-view" hidden>
         <div class="panel-head"><div><p class="eyebrow">SPECIALTY WORKSHOPS</p><h3>Workshops and events</h3><p>Review existing events or add a new one. Each card keeps the flyer, details, link, and live status together.</p></div><button class="button" type="button" id="scroll-to-new">+ Add Workshop</button></div>
-        <div class="workshop-list" aria-label="Current workshop cards">
-          <article class="workshop-card"><div class="workshop-thumb">CASINO<br>NIGHT</div><div class="workshop-copy"><p class="eyebrow">SATURDAY, OCTOBER 24</p><h4>Project SMASH Casino Night</h4><p>Fundraiser event with games, drinks, and community support.</p><div class="class-actions"><span class="toggle"><button class="switch is-on" type="button" aria-label="Toggle Casino Night active"></button>Live on site</span><button class="button button--small button--navy" type="button" data-edit-workshop="Casino Night">Edit</button></div></div></article>
-          <article class="workshop-card"><div class="workshop-thumb">K-POP<br>SKATE</div><div class="workshop-copy"><p class="eyebrow">DATE TO BE CONFIRMED</p><h4>K-Pop Skate Night</h4><p>A community fundraiser with skating, performances, and raffles.</p><div class="class-actions"><span class="toggle"><button class="switch is-on" type="button" aria-label="Toggle K-Pop Skate Night active"></button>Live on site</span><button class="button button--small button--navy" type="button" data-edit-workshop="K-Pop Skate Night">Edit</button></div></div></article>
-        </div>
+        <div class="workshop-list" id="live-workshop-list" aria-label="Current workshop cards"><p class="help">Loading connected workshop cards…</p></div>
         <div id="new-workshop">
           <p class="eyebrow">ADD A NEW WORKSHOP</p>
         <div class="workshop-layout">
@@ -77,27 +71,8 @@
 
       <section class="video-panel" id="videos-view" hidden>
         <div class="panel-head"><div><p class="eyebrow">YOUTUBE VIDEOS</p><h3>Video links by page</h3><p>Each row tells staff exactly where the video appears. They only replace the YouTube link, not the page design.</p></div><button class="button" type="button" id="add-video">+ Add Video Spot</button></div>
-        <div class="video-page-group"><h4>Home Page <span>3 VIDEO LOCATIONS</span></h4><div class="video-grid" aria-label="Home page video locations">
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Studio Highlights</h4><p>Appears in the home-page studio video section.</p></div><div class="video-link">youtube.com/watch?v=studio-highlights</div><button class="button button--small button--navy" type="button" data-edit-video="Home Page: Studio Highlights">Edit Link</button></article>
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Kids Program Feature</h4><p>Appears beside the kids program introduction.</p></div><div class="video-link">youtube.com/watch?v=kids-feature</div><button class="button button--small button--navy" type="button" data-edit-video="Home Page: Kids Program Feature">Edit Link</button></article>
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Adult Fitness Feature</h4><p>Appears beside the adult fitness introduction.</p></div><div class="video-link">youtube.com/watch?v=adult-feature</div><button class="button button--small button--navy" type="button" data-edit-video="Home Page: Adult Fitness Feature">Edit Link</button></article>
-        </div></div>
-        <div class="video-page-group"><h4>Kids Schedule <span>3 VIDEO LOCATIONS</span></h4><div class="video-grid" aria-label="Kids schedule video locations">
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Kids Dance Program</h4><p>Appears below the kids class schedule.</p></div><div class="video-link">youtube.com/watch?v=kids-program</div><button class="button button--small button--navy" type="button" data-edit-video="Kids Schedule: Kids Dance Program">Edit Link</button></article>
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Why Choose SMASH</h4><p>Appears in the family benefits section.</p></div><div class="video-link">youtube.com/watch?v=why-smash-kids</div><button class="button button--small button--navy" type="button" data-edit-video="Kids Schedule: Why Choose SMASH">Edit Link</button></article>
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Studio Tour</h4><p>Appears in the studio and facility section.</p></div><div class="video-link">youtube.com/watch?v=kids-studio-tour</div><button class="button button--small button--navy" type="button" data-edit-video="Kids Schedule: Studio Tour">Edit Link</button></article>
-        </div></div>
-        <div class="video-page-group"><h4>Adult Classes <span>3 VIDEO LOCATIONS</span></h4><div class="video-grid" aria-label="Adult classes video locations">
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Adult Fitness Video</h4><p>Appears in the adult class information area.</p></div><div class="video-link">youtube.com/watch?v=adult-fitness</div><button class="button button--small button--navy" type="button" data-edit-video="Adult Classes: Adult Fitness Video">Edit Link</button></article>
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Sin City Heels</h4><p>Appears in the Sin City Heels program section.</p></div><div class="video-link">youtube.com/watch?v=sin-city-heels</div><button class="button button--small button--navy" type="button" data-edit-video="Adult Classes: Sin City Heels">Edit Link</button></article>
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Class Experience</h4><p>Appears in the adult schedule and studio section.</p></div><div class="video-link">youtube.com/watch?v=adult-class-experience</div><button class="button button--small button--navy" type="button" data-edit-video="Adult Classes: Class Experience">Edit Link</button></article>
-        </div></div>
-        <div class="video-page-group"><h4>Quinceañera <span>3 VIDEO LOCATIONS</span></h4><div class="video-grid" aria-label="Quinceañera video locations">
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Choreography Showcase</h4><p>Appears in the choreography and events page.</p></div><div class="video-link">youtube.com/watch?v=quince-choreography</div><button class="button button--small button--navy" type="button" data-edit-video="Quinceañera: Choreography Showcase">Edit Link</button></article>
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Event Highlights</h4><p>Appears in the celebration highlights area.</p></div><div class="video-link">youtube.com/watch?v=quince-highlights</div><button class="button button--small button--navy" type="button" data-edit-video="Quinceañera: Event Highlights">Edit Link</button></article>
-          <article class="video-card"><div class="video-mark">▶</div><div><h4>Behind the Scenes</h4><p>Appears in the studio experience area.</p></div><div class="video-link">youtube.com/watch?v=quince-behind-scenes</div><button class="button button--small button--navy" type="button" data-edit-video="Quinceañera: Behind the Scenes">Edit Link</button></article>
-        </div></div>
-        <p class="help" style="margin-top:16px">The real editor would show the existing link, let staff paste the new link, preview it, then publish the change.</p>
+        <div id="live-video-groups" aria-live="polite"><p class="help">Loading connected video rows…</p></div>
+        <p class="help" style="margin-top:16px">This test confirms the Video tab connection. Before live video editing is enabled, the Sheet needs to expose each video title, page placement, and YouTube URL through the connector.</p>
       </section>
       <p class="prototype-footer">Prototype concept: private staff editor, familiar SMASH colors, simple card-based editing, and no Google Sheet columns visible.</p>
     </main>
@@ -144,5 +119,6 @@
     document.querySelector('#save-video').addEventListener('click', () => { videoModal.hidden = true; alert('Prototype saved. The real editor would validate the YouTube link, show a preview, then wait for Publish Changes.'); });
     document.querySelector('#add-video').addEventListener('click', () => { videoLocation.value = 'Choose page and video location'; videoModal.hidden = false; document.querySelector('#video-url').focus(); });
   </script>
+  <script src="staff-editor-live.js"></script>
 </body>
 </html>
